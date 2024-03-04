@@ -1,0 +1,15 @@
+<% for(var i = 0; i < users.length; i++) { %>
+<tr>
+    <td style="padding-top: 100px;"><%= i + 1 %></td>
+    <td style="padding-top: 100px;"><%= users[i].name %></td>
+    <td style="padding-top: 100px;"><%= users[i].age %></td>
+    <td style="padding-top: 100px;"><%= users[i].gender %></td>
+    <td style="padding-top: 0px;"><%= users[i].consultation %></td>
+    <td style="padding-top: 70px;"><img style="height: 70px; width: 100px" src="<%= users[i].imagei %>" alt="Input Image"></td>
+    <td style="padding-top: 70px;"><img style="height: 70px; width: 100px" src="<%= users[i].imageo %>" alt="Output Image"></td>
+</tr>
+<% } %>
+
+<!--<td><img src="data:<%= //users[i].imagei.contentType %>;base64,<%= //users[i].imagei.data.toString('base64') %>" /></td>
+<td><img src="data:<%= //users[i].imageo.contentType %>;base64,<%= //users[i].imageo.data.toString('base64') %>" /></td>-->
+
