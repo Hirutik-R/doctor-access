@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details</title>
+</head>
+<body>
+    <h1>Patient Details</h1>
+    
+    <div>
+        <h2>Name: <span id="name"></span></h2>
+        <p>Age: <span id="age"></span></p>
+        <p>Gender: <span id="gender"></span></p>
+        <p>Consultation: <span id="consultation"></span></p>
+        <p>Input Image:</p>
+        <img id="input-image" src="" alt="Input Image">
+        <p>Output Image:</p>
+        <img id="output-image" src="" alt="Output Image">
+    </div>
+
+    <script>
+        // Retrieve patient details from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name') || '';
+        const age = urlParams.get('age') || '';
+        const gender = urlParams.get('gender') || '';
+        const consultation = urlParams.get('consultation') || '';
+        const inputImage = urlParams.get('imagei') || '';
+        const outputImage = urlParams.get('imageo') || '';
+
+        // Populate HTML elements with patient details
+        document.getElementById("name").textContent = name;
+        document.getElementById("age").textContent = age;
+        document.getElementById("gender").textContent = gender;
+        document.getElementById("consultation").textContent = consultation;
+        document.getElementById("input-image").src = inputImage;
+        document.getElementById("output-image").src = outputImage;
+    </script>
+</body>
+</html>
