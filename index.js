@@ -6,8 +6,8 @@ const multer = require('multer'); // Import multer for file uploads
 const connectDB = require('./server/database/connection');
 
 const app = express();
-
-const PORT = 3000;
+app.use(express.static('public'));
+const PORT = 7000;
 
 // Log requests
 app.use(morgan('tiny'));
