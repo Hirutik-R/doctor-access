@@ -7,7 +7,7 @@ const connectDB = require('./server/database/connection');
 
 const app = express();
 app.use(express.static('public'));
-const PORT = 7000;
+const PORT = 3000;
 
 // Log requests
 app.use(morgan('tiny'));
