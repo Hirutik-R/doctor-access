@@ -1,15 +1,30 @@
-<% for(var i = 0; i < users.length; i++) { %>
-<tr>
-    <td style="padding-top: 50px;"><%= i + 1 %></td>
-    <td style="padding-top: 50px;"><%= users[i].name %></td>
-    <td style="padding-top: 50px;"><%= users[i].age %></td>
-    <td style="padding-top: 50px;"><%= users[i].gender %></td>
-    <td style="padding-top: 30px;"><%= users[i].consultation %></td>
-    <td style="padding-top: 20px;"><img style="height: 70px; width: 100px" src="<%= users[i].imagei %>" alt="Input Image"></td>
-    <td style="padding-top: 20px;"><img style="height: 70px; width: 100px" src="<%= users[i].imageo %>" alt="Output Image"></td>
-</tr>
-<% } %>
+<tbody class="text-dark">
+    <% for(var i = 0; i < users.length; i++) { %>
+        <tr id="user_<%= i %>" class="user-row" onclick="redirectToDetailsPage('<%= users[i].name %>', '<%= users[i].age %>', '<%= users[i].gender %>', '<%= users[i].consultation %>', '<%= users[i].imagei %>', '<%= users[i].imageo %>')">
+        <td><%= i + 1 %></td>
+        <td><%= users[i].name %></td>
+        <td><%= users[i].age %></td>
+        <td><%= users[i].gender %></td>
+        <td><%= users[i].consultation %></td>
+        <td><img src="<%= users[i].imagei %>" alt="Input Image"></td>
+        <td><img src="<%= users[i].imageo %>" alt="Segmented Image"></td>
+    </tr>
+    <% } %>
+</tbody>
 
-<!--<td><img src="data:<%= //users[i].imagei.contentType %>;base64,<%= //users[i].imagei.data.toString('base64') %>" /></td>
-<td><img src="data:<%= //users[i].imageo.contentType %>;base64,<%= //users[i].imageo.data.toString('base64') %>" /></td>-->
+<script>
+    function redirectToDetailsPage(name, age, gender, consultation, imagei, imageo) {
+        console.log('Name:', name);
+        console.log('Age:', age);
+        console.log('Gender:', gender);
+        console.log('Consultation:', consultation);
+        console.log('Input Image:', imagei);
+        console.log('Output Image:', imageo);
+    
+        // Redirect to details.html with the patient's details as URL parameters
+        const queryString = `?name=${encodeURIComponent(name)}&age=${encodeURIComponent(age)}&gender=${encodeURIComponent(gender)}&consultation=${encodeURIComponent(consultation)}&inputImage=${encodeURIComponent(imagei)}&outputImage=${encodeURIComponent(imageo)}`;
+        window.location.href = `details.html${queryString}`;
+    }
+    </script>
+    
 
