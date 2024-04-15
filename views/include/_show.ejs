@@ -1,13 +1,13 @@
 <tbody class="text-dark">
     <% for(var i = 0; i < users.length; i++) { %>
         <tr id="user_<%= i %>" class="user-row" onclick="redirectToDetailsPage('<%= users[i].name %>', '<%= users[i].age %>', '<%= users[i].gender %>', '<%= users[i].consultation %>', '<%= users[i].imagei %>', '<%= users[i].imageo %>')">
-        <td><%= i + 1 %></td>
-        <td><%= users[i].name %></td>
-        <td><%= users[i].age %></td>
-        <td><%= users[i].gender %></td>
-        <td><%= users[i].consultation %></td>
-        <td><img src="<%= users[i].imagei %>" alt="Input Image"></td>
-        <td><img src="<%= users[i].imageo %>" alt="Segmented Image"></td>
+    <td style="padding-top: 50px;"><%= i + 1 %></td>
+    <td style="padding-top: 50px;"><%= users[i].name %></td>
+    <td style="padding-top: 50px;"><%= users[i].age %></td>
+    <td style="padding-top: 50px;"><%= users[i].gender %></td>
+    <td style="padding-top: 30px;"><%= users[i].consultation %></td>
+    <td style="padding-top: 20px;"><img style="height: 70px; width: 100px" src="<%= users[i].imagei %>" alt="Input Image"></td>
+    <td style="padding-top: 20px;"><img style="height: 70px; width: 100px" src="<%= users[i].imageo %>" alt="Output Image"></td>
     </tr>
     <% } %>
 </tbody>
