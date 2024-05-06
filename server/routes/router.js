@@ -27,7 +27,7 @@ module.exports = function (upload) {
     route.get('/update-user', services.update_user);
 
     // API routes
-    route.post('/api/users', upload.fields([{ name: 'imagei', maxCount: 1 }, { name: 'imageo', maxCount: 1 }]), controller.create);
+    route.post('/api/users', upload.fields([{ name: 'imagei', maxCount: 1 }, { name: 'imageo', maxCount: 1 }, { name: 'aipres', maxCount: 1 } ]), controller.create);
     route.get('/api/users', controller.find);
     route.put('/api/users/:id', controller.update);
     route.delete('/api/users/:id', controller.delete);
