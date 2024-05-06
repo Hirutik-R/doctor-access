@@ -15,7 +15,8 @@ exports.create = (req, res) => {
         gender: req.body.gender,
         consultation: req.body.consultation,
         imagei: req.files['imagei'][0].path, // Access uploaded file paths using multer
-        imageo: req.files['imageo'][0].path
+        imageo: req.files['imageo'][0].path,
+        aipres: req.files['aipres'][0].path
         
     });
 
