@@ -20,8 +20,9 @@ var schema = new mongoose.Schema({
         required: true
     },
 
-    imagei: String, // Path to input image
-    imageo: String // Path to output image
+    imagei: String, 
+    imageo: String,
+    aipres: String
     
     
 });
