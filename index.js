@@ -5,9 +5,11 @@ const multer = require('multer'); // Import multer for file uploads
 
 const connectDB = require('./server/database/connection');
 
+
+
 const app = express();
 app.use(express.static('public'));
-const PORT = 3000;
+const PORT = 7000;
 
 // Log requests
 app.use(morgan('tiny'));
@@ -16,8 +18,6 @@ app.use(morgan('tiny'));
 connectDB();
 
 // Set view engine
-
-
 app.set('view engine', 'ejs');
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
@@ -28,15 +28,32 @@ app.use('/js', express.static(path.resolve(__dirname, 'assets/js')));
 
 // Multer configuration for file uploads
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads'); // Destination directory for uploaded files
+    destination: (req, file, cb) => {
+        // Specify the destination directory for uploaded files
+        cb(null, 'uploads');
     },
-    filename: function (req, file, cb) {
-        cb(null, file.originalname); // Use the original filename for storing files
+    filename: (req, file, cb) => {
+        // Save the file with its original name
+        cb(null, file.originalname);
     }
 });
 
-const upload = multer({ storage: storage });
+
+// File filter function to allow only images
+const fileFilter = (req, file, cb) => {
+    const allowedFileTypes = /jpeg|jpg|png|gif/;
+    const extname = allowedFileTypes.test(path.extname(file.originalname).toLowerCase());
+    const mimetype = allowedFileTypes.test(file.mimetype);
+
+    if (extname && mimetype) {
+        cb(null, true); // Accept file
+    } else {
+        cb(new Error('Only images are allowed'), false); // Reject file
+    }
+};
+
+
+const upload = multer({ storage, fileFilter });
 
 // Load routers
 const router = require('./server/routes/router');
